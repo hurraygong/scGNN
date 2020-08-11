@@ -74,15 +74,15 @@ Your help to improve scGNN is highly appreciated.
    getting_started
    DataProcessing
    Reproducibility
-   Virilization
+   Visualization
 
 .. toctree::
    :caption: Example Datasets
    :maxdepth: 1
    :hidden:
 
-   Pancreas
-   DentateGyrus
+   TrainData
+   Casestudy
 
 .. |Docs| image:: https://readthedocs.org/projects/scvelo/badge/?version=latest
    :target: https://scvelo.readthedocs.io

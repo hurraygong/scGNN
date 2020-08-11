@@ -61,7 +61,7 @@ from recommonmark.parser import CommonMarkParser
 source_parsers = {
     '.md': CommonMarkParser,
 }
-source_suffix = ['.rst', '.md']
+source_suffix = ['.rst', '.md', ".ipynb"]
 
 import recommonmark
 from recommonmark.transform import AutoStructify

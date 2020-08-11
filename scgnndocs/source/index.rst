@@ -3,57 +3,65 @@
 scGNN - single cell graph neural networks
 ============================================================
 
-.. image:: https://user-images.githubusercontent.com/31883718/67709134-a0989480-f9bd-11e9-8ae6-f6391f5d95a0.png
+.. image:: https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg
    :width: 300px
    :align: left
 
-**scVelo** is a scalable toolkit for RNA velocity analysis in single cells. |br|
-The methods are based on our preprint
-`Bergen et al. (2019) <https://doi.org/10.1101/820936>`_.
+**scGNN** (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.
 
-RNA velocity enables the recovery of directed dynamic information by leveraging splicing information.
-scVelo generalizes the concept of RNA velocity (`La Manno et al., 2018 <https://doi.org/10.1038/s41586-018-0414-6>`_)
-by relaxing previously made assumptions with a stochastic and a dynamical model that solves the full
-transcriptional dynamics. It thereby adapts RNA velocity to widely varying specifications such as non-stationary populations.
+This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: https://doi.org/10.1101/2020.08.02.233569
+|br|
 
-scVelo is compatible with scanpy_ and hosts efficient implementations of all RNA velocity models.
-
-scVelo's key applications
+scGNN's applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-- estimate RNA velocity to study cellular dynamics.
-- identify putative driver genes and regimes of regulatory changes.
-- infer a latent time to reconstruct the temporal sequence of transcriptomic events.
-- estimate reaction rates of transcription, splicing and degradation.
-- use statistical tests, e.g., to detect different kinetics regimes.
+- Formulates and ggregates cell-cell relationships with graph neural networks
+- Models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model
 
 Reference
 ^^^^^^^^^
-Bergen et al. (2019), *Generalizing RNA velocity to transient cell states through dynamical modeling*,
-`biorxiv <https://doi.org/10.1101/820936>`_.
+1. `VAE <https://github.com/pytorch/examples/tree/master/vae>`_
+2. `GAE <https://github.com/tkipf/gae/tree/master/gae>`_
+3. `scVI-reproducibility <https://github.com/romain-lopez/scVI-reproducibility>`_
+4. `LTMG <https://academic.oup.com/nar/article/47/18/e111/5542876>`_
+
+**BibTeX**
+^^^^^^^^^
+```latex
+@article{Wang_2020_scGNN,
+	author = {Juexin Wang, Anjun Ma, Yuzhou Chang, Jianting Gong, Yuexu Jiang, Hongjun Fu, Cankun Wang, Ren Qi, Qin Ma, Dong Xu},
+	title = {scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses},
+	elocation-id = {2020.08.02.233569},
+	year = {2020},
+	doi = {10.1101/2020.08.02.233569},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/10.1101/2020.08.02.233569v1},
+	eprint = {https://www.biorxiv.org/content/10.1101/2020.08.02.233569v1.full.pdf},
+	journal = {bioRxiv}
+}
+```
+
+ACKNOWLEDGEMENTS
+^^^^^^^^^^^^^^^^
+This work was supported by the National Institutes of Health’s National Institute of General Medical Sciences (awards R35-GM126985 and R01-GM131399).
 
 Support
 ^^^^^^^
-Feel free to submit an `issue <https://github.com/theislab/scvelo/issues/new/choose>`_
+Feel free to submit an `issue <https://github.com/juexinwang/scGNN/issues/new/choose>`_
 or send us an `email <mailto:mail@scvelo.org>`_.
-Your help to improve scVelo is highly appreciated.
-
+Your help to improve scGNN is highly appreciated.
 
 .. note::
 
-   Dear scVelo user, I am currently traveling and will be returning in mid August.
-   Upon my return, I will be available via voice call for urgent matters.
-   Please schedule a VC meeting |meet|.
-   Warmest regards, Volker.
-
+   Dear scGNN users
 
 .. toctree::
    :caption: Main
    :maxdepth: 1
    :hidden:
 
-    About scGNN
+    About
     Installation
-    Quikstart
+    Quickstart
     Release
     References
     Contact
@@ -64,9 +72,9 @@ Your help to improve scVelo is highly appreciated.
    :hidden:
 
    getting_started
-   VelocityBasics
-   DynamicalModeling
-   DifferentialKinetics
+   DataProcessing
+   Reproducibility
+   Virilization
 
 .. toctree::
    :caption: Example Datasets
@@ -76,25 +84,12 @@ Your help to improve scVelo is highly appreciated.
    Pancreas
    DentateGyrus
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/scvelo.svg
-   :target: https://pypi.org/project/scvelo
-
-.. |PyPIDownloads| image:: https://pepy.tech/badge/scvelo
-   :target: https://pepy.tech/project/scvelo
-
 .. |Docs| image:: https://readthedocs.org/projects/scvelo/badge/?version=latest
    :target: https://scvelo.readthedocs.io
-
-.. |travis| image:: https://travis-ci.org/theislab/scvelo.svg?branch=master
-   :target: https://travis-ci.org/theislab/scvelo
-
-.. _scanpy: https://scanpy.readthedocs.io
 
 .. |br| raw:: html
 
   <br/>
-
-.. |meet| raw:: html
 
   <!-- Calendly link widget begin -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">

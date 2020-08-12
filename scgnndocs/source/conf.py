@@ -46,19 +46,19 @@ exclude_patterns = []
 
 # -- Retrieve notebooks ------------------------------------------------
 
-from urllib.request import urlretrieve
-
-notebooks_url = "https://github.com/hurraygong/scGNN/tree/master/reproduce/"
-notebooks = [
-    "DataProcessing.ipynb",
-    "Installation.ipynb",
-    "Quickstart.ipynb",
-]
-for nb in notebooks:
-    try:
-        urlretrieve(notebooks_url + nb, nb)
-    except:
-        pass
+# from urllib.request import urlretrieve
+#
+# notebooks_url = "https://github.com/hurraygong/scGNN/tree/master/reproduce/"
+# notebooks = [
+#     "DataProcessing.ipynb",
+#     "Installation.ipynb",
+#     "Quickstart.ipynb",
+# ]
+# for nb in notebooks:
+#     try:
+#         urlretrieve(notebooks_url + nb, nb)
+#     except:
+#         pass
 
 # -- Options for HTML output -------------------------------------------------
 

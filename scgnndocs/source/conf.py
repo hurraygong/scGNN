@@ -48,7 +48,7 @@ exclude_patterns = []
 
 from urllib.request import urlretrieve
 
-notebooks_url = "https://github.com/hurraygong/scGNN/tree/master/scgnndocs/source/"
+notebooks_url = "https://github.com/hurraygong/scGNN/tree/master/reproduce/"
 notebooks = [
     "DataProcessing.ipynb",
     "Installation.ipynb",

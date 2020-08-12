@@ -31,7 +31,6 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [  'recommonmark',
-                "edit_on_github",
             ]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,6 +49,9 @@ notebooks = [
     "DataProcessing.ipynb",
     "Installation.ipynb",
     "Quickstart.ipynb",
+    "Contact.rst",
+    "About.md",
+    "Contact.rst",
 ]
 for nb in notebooks:
     try:
@@ -69,7 +71,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = "sphinx_rtd_theme"
 html_theme_options = dict(navigation_depth=1, titles_only=True)
 github_repo = "scGNN"
-github_nb_repo = "scGNN_notebooks"
+#github_nb_repo = "scGNN_notebooks"
 html_static_path = ["_static"]
 
 
@@ -82,12 +84,12 @@ def setup(app):
 
 source_suffix = ['.rst', '.md', '.ipynb']
 
-from recommonmark.transform import AutoStructify
-
-# At the bottom of conf.py
-def setup(app):
-    app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: github_doc_root + url,
-            'auto_toc_tree_section': 'Contents',
-            }, True)
-    app.add_transform(AutoStructify)
+# from recommonmark.transform import AutoStructify
+#
+# # At the bottom of conf.py
+# def setup(app):
+#     app.add_config_value('recommonmark_config', {
+#             'url_resolver': lambda url: github_doc_root + url,
+#             'auto_toc_tree_section': 'Contents',
+#             }, True)
+#     app.add_transform(AutoStructify)

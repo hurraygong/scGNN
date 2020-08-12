@@ -49,9 +49,6 @@ notebooks = [
     "DataProcessing.ipynb",
     "Installation.ipynb",
     "Quickstart.ipynb",
-    "Contact.rst",
-    "About.md",
-    "Contact.rst",
 ]
 for nb in notebooks:
     try:
@@ -84,12 +81,12 @@ def setup(app):
 
 source_suffix = ['.rst', '.md', '.ipynb']
 
-# from recommonmark.transform import AutoStructify
-#
-# # At the bottom of conf.py
-# def setup(app):
-#     app.add_config_value('recommonmark_config', {
-#             'url_resolver': lambda url: github_doc_root + url,
-#             'auto_toc_tree_section': 'Contents',
-#             }, True)
-#     app.add_transform(AutoStructify)
+from recommonmark.transform import AutoStructify
+
+# At the bottom of conf.py
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
+    app.add_transform(AutoStructify)

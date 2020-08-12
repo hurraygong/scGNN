@@ -1,5 +1,5 @@
 Contact
-------------
+-------
 
 Juexin Wang: wangjue@missouri.edu
 

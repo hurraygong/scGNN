@@ -37,24 +37,26 @@ Your help to improve scGNN is highly appreciated.
 
    Dear scGNN users
 
+
+
 .. toctree::
    :caption: Main
    :maxdepth: 1
    :hidden:
 
-    About
-    Installation
-    Quickstart
-    Release
-    References
-    Contact
+   About scGNN
+   Installation
+   Quickstart
+   Release
+   References
+   Contact
 
 .. toctree::
    :caption: Tutorials
    :maxdepth: 1
    :hidden:
 
-   getting_started
+   Getting start
    DataProcessing
    Reproducibility
    Visualization
@@ -66,6 +68,7 @@ Your help to improve scGNN is highly appreciated.
 
    TrainData
    Casestudy
+
 
 .. |Docs| image:: https://readthedocs.org/projects/scvelo/badge/?version=latest
    :target: https://scvelo.readthedocs.io

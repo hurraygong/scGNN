@@ -30,8 +30,12 @@ release = '0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [  'recommonmark',
-            ]
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.mathjax',
+    'recommonmark',
+]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 master_doc = "index"
@@ -68,6 +72,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_theme = "sphinx_rtd_theme"
 html_theme_options = dict(navigation_depth=1, titles_only=True)
 github_repo = "scGNN"
+github_doc_root = 'https://github.com/hurraygong/scGNN/tree/master/scgnndocs'
 #github_nb_repo = "scGNN_notebooks"
 html_static_path = ["_static"]
 
@@ -78,7 +83,10 @@ def setup(app):
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-
+from recommonmark.parser import CommonMarkParser
+source_parsers = {
+    '.md': CommonMarkParser,
+}
 source_suffix = ['.rst', '.md', '.ipynb']
 
 from recommonmark.transform import AutoStructify

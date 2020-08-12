@@ -31,16 +31,6 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [  'recommonmark',
-                "sphinx.ext.autodoc",
-                "sphinx.ext.doctest",
-                "sphinx.ext.coverage",
-                "sphinx.ext.mathjax",
-                "sphinx.ext.autosummary",
-                "sphinx.ext.napoleon",
-                "sphinx.ext.intersphinx",
-                "sphinx.ext.githubpages",
-                "sphinx_autodoc_typehints",
-                "nbsphinx",
                 "edit_on_github",
             ]
 # Add any paths that contain templates here, relative to this directory.
@@ -92,7 +82,6 @@ def setup(app):
 
 source_suffix = ['.rst', '.md', '.ipynb']
 
-import recommonmark
 from recommonmark.transform import AutoStructify
 
 # At the bottom of conf.py

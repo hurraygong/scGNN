@@ -38,13 +38,12 @@ Your help to improve scGNN is highly appreciated.
    Dear scGNN users
 
 
-
 .. toctree::
    :caption: Main
    :maxdepth: 1
    :hidden:
 
-   About scGNN
+   About
    Installation
    Quickstart
    Release

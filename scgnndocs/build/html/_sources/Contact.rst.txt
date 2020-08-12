@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -899,3 +900,9 @@
   </body>
 </html>
 
+=======
+Contact
+-------
+
+Juexin Wang
+>>>>>>> 52cf77a9fc7c1e50d79533fbdf51aa0e8c635c8c

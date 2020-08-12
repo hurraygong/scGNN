@@ -1,6 +1,16 @@
+<<<<<<< HEAD:scgnndocs/source/About.md
+=======
+About
+------------
+>>>>>>> 52cf77a9fc7c1e50d79533fbdf51aa0e8c635c8c:scgnndocs/source/About.rst
 
 
 
+<<<<<<< HEAD:scgnndocs/source/About.md
+=======
+scGNN model
+^^^^^^^^^^^^
+>>>>>>> 52cf77a9fc7c1e50d79533fbdf51aa0e8c635c8c:scgnndocs/source/About.rst
 
 
 <!DOCTYPE html>

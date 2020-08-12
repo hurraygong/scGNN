@@ -3,14 +3,11 @@
 scGNN - single cell graph neural networks
 ============================================================
 
+**scGNN** (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.
 .. image:: https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg
    :width: 300px
    :align: left
-
-**scGNN** (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.
-
 This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: https://doi.org/10.1101/2020.08.02.233569
-|br|
 
 scGNN's applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -23,22 +20,6 @@ Reference
 2. `GAE <https://github.com/tkipf/gae/tree/master/gae>`_
 3. `scVI-reproducibility <https://github.com/romain-lopez/scVI-reproducibility>`_
 4. `LTMG <https://academic.oup.com/nar/article/47/18/e111/5542876>`_
-
-**BibTeX**
-^^^^^^^^^
-```latex
-@article{Wang_2020_scGNN,
-	author = {Juexin Wang, Anjun Ma, Yuzhou Chang, Jianting Gong, Yuexu Jiang, Hongjun Fu, Cankun Wang, Ren Qi, Qin Ma, Dong Xu},
-	title = {scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses},
-	elocation-id = {2020.08.02.233569},
-	year = {2020},
-	doi = {10.1101/2020.08.02.233569},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/10.1101/2020.08.02.233569v1},
-	eprint = {https://www.biorxiv.org/content/10.1101/2020.08.02.233569v1.full.pdf},
-	journal = {bioRxiv}
-}
-```
 
 ACKNOWLEDGEMENTS
 ^^^^^^^^^^^^^^^^
@@ -90,9 +71,3 @@ Your help to improve scGNN is highly appreciated.
 .. |br| raw:: html
 
   <br/>
-
-  <!-- Calendly link widget begin -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-  <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/scvelo'});return false;">here</a>
-  <!-- Calendly link widget end -->

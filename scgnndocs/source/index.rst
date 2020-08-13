@@ -69,7 +69,3 @@ Your help to improve scGNN is highly appreciated.
    TrainData
    Casestudy
 
-
-.. |br| raw:: html
-
-  <br/>

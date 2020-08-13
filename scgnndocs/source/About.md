@@ -9,7 +9,7 @@ The architecture of scGNN is comprised of stacked autoencoders.
 It has three comprehensive computational components in an iteration process, including gene regulation integration in a feature autoencoder, cell graph representation in a graph autoencoder, gene expression updating in a set of parallel cell-type105 specific cluster autoencoders, as well as the final gene expression recovery in an imputation
 autoencoder.
 
-![image](https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg)
+![image](https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/overview.jpg)
 
 This is the architecture of scGNN. It takes the gene expression matrix generated from scRNA-Seq as the input. LTMG can translate the input gene expression data into a discretized regulatory signal as the regularizer for the feature autoencoder. The feature autoencoder learns a dimensional representation of the input as embedding, upon which a cell graph is constructed and pruned. The graph autoencoder learns a topological graph embedding of the cell graph, which is used for cell type clustering. The cells in each cell type have an individual cluster autoencoder to reconstruct gene expression values. The framework treats the reconstructed expression as a new input iteratively until converging. Finally, the imputed gene expression values are obtained by the feature autoencoder regularized by the cell-cell relationships in the learned cell graph on the original preprocessed raw expression matrix through the imputation autoencoder
 

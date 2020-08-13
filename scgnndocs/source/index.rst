@@ -3,7 +3,7 @@
 scGNN - single cell graph neural networks
 ============================================================
 
-.. image:: https://user-images.githubusercontent.com/31883718/67709134-a0989480-f9bd-11e9-8ae6-f6391f5d95a0.png
+.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/overview.jpg
    :width: 300px
    :align: left
 

@@ -70,9 +70,6 @@ Your help to improve scGNN is highly appreciated.
    Casestudy
 
 
-.. |Docs| image:: https://readthedocs.org/projects/scvelo/badge/?version=latest
-   :target: https://scvelo.readthedocs.io
-
 .. |br| raw:: html
 
   <br/>

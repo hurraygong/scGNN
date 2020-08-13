@@ -83,11 +83,8 @@ def setup(app):
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-from recommonmark.parser import CommonMarkParser
-source_parsers = {
-    '.md': CommonMarkParser,
-}
-source_suffix = ['.rst', '.md', '.ipynb']
+
+source_suffix = ['.rst', '.md']
 
 from recommonmark.transform import AutoStructify
 

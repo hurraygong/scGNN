@@ -2,9 +2,11 @@
 
 scGNN - single cell graph neural networks
 ============================================================
-.. image:: https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg
+
+.. image:: https://user-images.githubusercontent.com/31883718/67709134-a0989480-f9bd-11e9-8ae6-f6391f5d95a0.png
    :width: 300px
    :align: left
+
 
 **scGNN** (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.
 

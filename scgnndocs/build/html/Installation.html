@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
   
@@ -154,7 +155,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Installation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Installation.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,6 +171,55 @@
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Installation Tested on Ubuntu 16.04 and CentOS 7 with Python 3.6.8</p>
+<div class="section" id="from-source">
+<h2>From Source:<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<p>Start by grabbing this source codes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/scgnn/scGNN.git
+<span class="nb">cd</span> scGNN
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-1-recommended-use-python-virutal-enviorment-with-conda-https-anaconda-org">
+<h2>Option 1 : (Recommended) Use python virutal enviorment with conda（<a class="reference external" href="https://anaconda.org/">https://anaconda.org/</a>）<a class="headerlink" href="#option-1-recommended-use-python-virutal-enviorment-with-conda-https-anaconda-org" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda create -n scgnnEnv <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6.8 pip
+conda activate scgnnEnv
+conda install r-devtools
+conda install -c r r-igraph
+conda install -c cyz931123 r-scgnnltmg
+pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-2-direct-install-individually">
+<h2>Option 2 : Direct install individually<a class="headerlink" href="#option-2-direct-install-individually" title="Permalink to this headline">¶</a></h2>
+<p>Need to install R packages first, tested on R &gt;=3.6.1:</p>
+<p>In R command line:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;igraph&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span>
+<span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;BMEngineeR/scGNNLTMG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then install all python packages in bash.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-3-use-docker">
+<h2>Option 3: Use Docker<a class="headerlink" href="#option-3-use-docker" title="Permalink to this headline">¶</a></h2>
+<p>Download and install <a class="reference external" href="https://www.docker.com/products/docker-desktop">docker</a>.</p>
+<p>Pull docker image <strong>gongjt057/scgnn</strong> from the <a class="reference external" href="https://hub.docker.com/">dockerhub</a>. Please beware that this image is huge for it includes all the environments. To get this docker image as base image type the command as shown in the below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull gongjt057/scgnn:code
+</pre></div>
+</div>
+<p>Type <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code> to see the list of images you have downloaded on your machine. If <strong>gongjt057/scgnn</strong> in the list, download it successfully.</p>
+<p>Run a container from the image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it gongjt057/scgnn:code /bin/bash
+<span class="nb">cd</span> /scGNN/scGNN
+</pre></div>
+</div>
+<p>Then you can proceed to the next step.</p>
+</div>
 </div>
 
 

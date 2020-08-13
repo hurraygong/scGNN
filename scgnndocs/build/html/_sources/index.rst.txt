@@ -1,5 +1,3 @@
-|Docs|
-
 scGNN - single cell graph neural networks
 ============================================================
 

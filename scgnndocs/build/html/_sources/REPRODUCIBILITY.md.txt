@@ -1,4 +1,4 @@
-# Reproduce 
+# Reproducibility
 
 Scripts to reproduce results obtained in the manuscript
 
@@ -8,7 +8,7 @@ Scripts to reproduce results obtained in the manuscript
 
 ```shell
 cd data
-tar zxvf data.tar.gz 
+tar zxvf data.tar.gz
 ```
 
 There are four datasets: Chung, Kolodziejczyk, Klein, Zeisel
@@ -32,7 +32,7 @@ python Preprocessing_main.py --expression-name 9.Chung
 ## Clustering on Benchmarks
 
 ```
-python3 -W ignore main_benchmark.py --datasetName 9.Chung --benchmark data/9.Chung/Chung_cell_label.csv --npyDir output/  
+python3 -W ignore main_benchmark.py --datasetName 9.Chung --benchmark data/9.Chung/Chung_cell_label.csv --npyDir output/
 ```
 
 ## Imputation on Benchmarks

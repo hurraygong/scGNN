@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; scGNN 0.1 documentation</title>
+  <title>About &mdash; scGNN 0.1 documentation</title>
   
 
   
@@ -34,9 +34,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="author" title="About these documents" href="#" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="Installation.html" />
+    <link rel="prev" title="scGNN - single cell graph neural networks" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,7 +83,8 @@
             
             
               <p class="caption"><span class="caption-text">Main</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Release.html">Release</a></li>
@@ -91,6 +93,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting%20start.html">Getting start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataProcessing.html">DataProcessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Reproducibility.html">Reproducibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Visualization.html">Visualization</a></li>
@@ -145,13 +148,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>About</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/about.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/About.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,21 +167,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># About</p>
+  <div class="section" id="about">
+<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
 <p>scGNN (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.</p>
-<p>This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: <a class="reference external" href="https://doi.org/10.1101/2020.08.02.233569">https://doi.org/10.1101/2020.08.02.233569</a></p>
-<p>## scGNN model</p>
+<p>This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: https://doi.org/10.1101/2020.08.02.233569</p>
+<div class="section" id="scgnn-model">
+<h2>scGNN model<a class="headerlink" href="#scgnn-model" title="Permalink to this headline">¶</a></h2>
 <p>The architecture of scGNN is comprised of stacked autoencoders.</p>
 <p>It has three comprehensive computational components in an iteration process, including gene regulation integration in a feature autoencoder, cell graph representation in a graph autoencoder, gene expression updating in a set of parallel cell-type105 specific cluster autoencoders, as well as the final gene expression recovery in an imputation
 autoencoder.</p>
-<p>![image](<a class="reference external" href="https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg">https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg</a>)</p>
+<p><img alt="image" src="https://github.com/hurraygong/scGNN/blob/master/pictures/overview.jpg" /></p>
 <p>This is the architecture of scGNN. It takes the gene expression matrix generated from scRNA-Seq as the input. LTMG can translate the input gene expression data into a discretized regulatory signal as the regularizer for the feature autoencoder. The feature autoencoder learns a dimensional representation of the input as embedding, upon which a cell graph is constructed and pruned. The graph autoencoder learns a topological graph embedding of the cell graph, which is used for cell type clustering. The cells in each cell type have an individual cluster autoencoder to reconstruct gene expression values. The framework treats the reconstructed expression as a new input iteratively until converging. Finally, the imputed gene expression values are obtained by the feature autoencoder regularized by the cell-cell relationships in the learned cell graph on the original preprocessed raw expression matrix through the imputation autoencoder</p>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="scGNN - single cell graph neural networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

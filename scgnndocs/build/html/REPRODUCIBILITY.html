@@ -34,7 +34,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Visualization" href="Visualization.html" />
@@ -85,6 +84,7 @@
             
               <p class="caption"><span class="caption-text">Main</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Release.html">Release</a></li>
@@ -93,6 +93,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20start.html">Getting start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataProcessing.html">DataProcessing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Reproducibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Visualization.html">Visualization</a></li>
@@ -153,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Reproducibility.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Reproducibility.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,7 +169,47 @@
             
   <div class="section" id="reproducibility">
 <h1>Reproducibility<a class="headerlink" href="#reproducibility" title="Permalink to this headline">¶</a></h1>
-<p>for test prepro</p>
+<p>Scripts to reproduce results obtained in the manuscript</p>
+<div class="section" id="preprocess-benchmarks">
+<h2>Preprocess benchmarks<a class="headerlink" href="#preprocess-benchmarks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="option-1-recommended-directly-use-preproceed-data">
+<h3>Option 1 (Recommended): directly use preproceed data<a class="headerlink" href="#option-1-recommended-directly-use-preproceed-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> data
+tar zxvf data.tar.gz
+</pre></div>
+</div>
+<p>There are four datasets: Chung, Kolodziejczyk, Klein, Zeisel</p>
+</div>
+<div class="section" id="option-2-regenerate-preproceed-data">
+<h3>Option 2: regenerate preproceed data<a class="headerlink" href="#option-2-regenerate-preproceed-data" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="generating-usage-csv">
+<h4>1. generating usage csv<a class="headerlink" href="#generating-usage-csv" title="Permalink to this headline">¶</a></h4>
+<p>Take Dataset Chung for example.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python Preprocessing_scFile.py --inputfile /folder/scGNN/data/9.Chung/T2000_expression.txt --outputfile /home/wangjue/biodata/scData/9.Chung.csv --split space --cellheadflag False
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-sparse-coding-under-data">
+<h4>2. generating sparse coding under data/<a class="headerlink" href="#generating-sparse-coding-under-data" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python Preprocessing_main.py --expression-name <span class="m">9</span>.Chung
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clustering-on-benchmarks">
+<h2>Clustering on Benchmarks<a class="headerlink" href="#clustering-on-benchmarks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">W</span> <span class="n">ignore</span> <span class="n">main_benchmark</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">datasetName</span> <span class="mf">9.</span><span class="n">Chung</span> <span class="o">--</span><span class="n">benchmark</span> <span class="n">data</span><span class="o">/</span><span class="mf">9.</span><span class="n">Chung</span><span class="o">/</span><span class="n">Chung_cell_label</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">npyDir</span> <span class="n">output</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="imputation-on-benchmarks">
+<h2>Imputation on Benchmarks<a class="headerlink" href="#imputation-on-benchmarks" title="Permalink to this headline">¶</a></h2>
+<p>Default: 10% of the non-zeros are flipped</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">W</span> <span class="n">ignore</span> <span class="n">main_benchmark</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">datasetName</span> <span class="mf">9.</span><span class="n">Chung</span> <span class="o">--</span><span class="n">benchmark</span> <span class="n">data</span><span class="o">/</span><span class="mf">9.</span><span class="n">Chung</span><span class="o">/</span><span class="n">Chung_cell_label</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">npyDir</span> <span class="n">output</span><span class="o">/</span> <span class="o">--</span><span class="n">imputeMode</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

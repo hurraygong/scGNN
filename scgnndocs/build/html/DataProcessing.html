@@ -34,11 +34,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reproducibility" href="Reproducibility.html" />
-    <link rel="prev" title="Contact" href="Contact.html" /> 
+    <link rel="prev" title="Getting start" href="Getting%20start.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,6 +84,7 @@
             
               <p class="caption"><span class="caption-text">Main</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Release.html">Release</a></li>
@@ -93,6 +93,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20start.html">Getting start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DataProcessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Reproducibility.html">Reproducibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Visualization.html">Visualization</a></li>
@@ -153,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/DataProcessing.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/DataProcessing.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,7 +169,80 @@
             
   <div class="section" id="dataprocessing">
 <h1>DataProcessing<a class="headerlink" href="#dataprocessing" title="Permalink to this headline">¶</a></h1>
-<p>data test</p>
+<p>Preprocessing dataset for scGNN supports that for the following two generic file formats <code class="docutils literal notranslate"><span class="pre">10X</span></code> or <code class="docutils literal notranslate"><span class="pre">CSV</span></code>.  We can use command to process data, such as <font color=red size=3><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-W</span> <span class="pre">ignore</span> <span class="pre">PreprocessingscGNN.py</span> <span class="pre">--parameters</span></code></font>.
+We take two steps to generate scGNN model input data in the module <a class="reference external" href="#"><code class="docutils literal notranslate"><span class="pre">PreprocessingscGNN.py</span></code></a>.</p>
+<ul class="simple">
+<li><p>Step1: Start filter and generating CSV</p></li>
+<li><p>Step2: Start infer LTMG from CSV</p></li>
+</ul>
+<p>The parameter <em>nonfilterCSVTag</em> and <em>noninferLTMGTag</em> is inputted by manual. All default are <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+<em>args.filterCSVTag</em> and <em>args.inferLTMGTag</em> values are as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span><span class="o">.</span><span class="n">filterCSVTag</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">nonfilterCSVTag</span>
+<span class="n">args</span><span class="o">.</span><span class="n">inferLTMGTag</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">noninferLTMGTag</span>
+</pre></div>
+</div>
+<p><em><strong>Step1: Start filter and generating CSV</strong></em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filterCSVTag</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filetype</span> <span class="o">==</span> <span class="s1">&#39;10X&#39;</span><span class="p">:</span>
+        <span class="n">expressionFilename</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">LTMGDir</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">datasetName</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">expressionFile</span>
+        <span class="n">preprocessing10X</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">datasetDir</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">datasetName</span><span class="p">,</span> <span class="n">expressionFilename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cellRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneCriteria</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneSelectnum</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">sparseOutTag</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filetype</span> <span class="o">==</span> <span class="s1">&#39;CSV&#39;</span><span class="p">:</span>
+        <span class="n">expressionFilename</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">LTMGDir</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">expressionFile</span>
+        <span class="n">preprocessingCSV</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">datasetDir</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">datasetName</span><span class="p">,</span> <span class="n">expressionFilename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delim</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cellRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneCriteria</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneSelectnum</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">transpose</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">tabuCol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the step1, if the file format is <code class="docutils literal notranslate"><span class="pre">10X</span></code>, the data will be processed though the function <font color=blue><code class="docutils literal notranslate"><span class="pre">preprocessing10X</span></code></font>. The necessary parameters are as follows.
+<font size= 2></p>
+<ul class="simple">
+<li><p><em>args.datasetDir:</em> str. The Dataset path,</p></li>
+<li><p><em>args.datasetName:</em>   str. The DatasetName, also a folder name which the files for proce are in.</p></li>
+<li><p><em>expressionFilename:</em>  str. Row is genes, column is cell.</p></li>
+<li><p><em>args.transform:</em> whether to transform the gene expression value <code class="docutils literal notranslate"><span class="pre">x</span></code>. default <code class="docutils literal notranslate"><span class="pre">log</span></code>, <em>log(x+1)</em></p></li>
+<li><p><em>args.cellRatio :</em>  ##Include features detected in at least this many cells. Will subset the counts matrix as well. To reintroduce excluded features, create a new object with a lower cutoff.</p></li>
+<li><p><em>args.geneRatio :</em>  ##Include cells where at least this many features are detected</p></li>
+<li><p><em>args.geneCriteria :</em>  How to choose top variable features;</p></li>
+<li><p><em>args.geneSelectnum :</em>  Number of features to select as top variable features;</p></li>
+<li><p><em>args.sparseOutTag:</em> whether to use sparse coding or not. The input parameter is <code class="docutils literal notranslate"><span class="pre">--nonsparseOutTag</span></code>,default <code class="docutils literal notranslate"><span class="pre">False</span></code>. <code class="docutils literal notranslate"><span class="pre">args.sparseOutTag</span> <span class="pre">=</span> <span class="pre">not</span> <span class="pre">nonsparseOutTag</span></code></p></li>
+</ul>
+</font><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessingCSV</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">datasetDir</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">datasetName</span><span class="p">,</span> <span class="n">expressionFilename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delim</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cellRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneRatio</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneCriteria</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">geneSelectnum</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">transpose</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">tabuCol</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>args.delim:</em>  File delim type, comma or space: default(comma)</p></li>
+<li><p><em>args.transpose:</em> whether transpose gene expression or not</p></li>
+<li><p><em>args.tabuCol:</em>  Not use some columns and setting their names split by ,default <code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
+</ul>
+<p><em><strong>Step2: Start infer LTMG from CSV</strong></em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">inferLTMGTag</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Step2: Start infer LTMG from CSV&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">filetype</span> <span class="o">==</span> <span class="s1">&#39;10X&#39;</span><span class="p">:</span>
+        <span class="n">ltmgdir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">LTMGDir</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">datasetName</span><span class="o">+</span><span class="s1">&#39;/&#39;</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filetype</span> <span class="o">==</span> <span class="s1">&#39;CSV&#39;</span><span class="p">:</span>
+        <span class="n">ltmgdir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">LTMGDir</span>
+    <span class="n">runLTMG</span><span class="p">(</span><span class="n">ltmgdir</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">expressionFile</span><span class="p">,</span> <span class="n">ltmgdir</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Left-Trunctruncated-Mixed-Gaussian(LTMG) model is a novel statistical modeling of transcriptional expression states in single-cell RNA-Seq data. LTMG is build on <code class="docutils literal notranslate"><span class="pre">R</span></code>. This is the example used by <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rpy2.robjects</span> <span class="k">as</span> <span class="nn">robjects</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects.packages</span> <span class="kn">import</span> <span class="n">importr</span>
+<span class="n">importr</span><span class="p">(</span><span class="s1">&#39;scGNNLTMG&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">runLTMG</span><span class="p">(</span><span class="n">expressionFile</span><span class="p">,</span><span class="n">ltmgFolder</span><span class="p">):</span>
+
+    <span class="n">robjects</span><span class="o">.</span><span class="n">globalenv</span><span class="p">[</span><span class="s1">&#39;expressionFile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">expressionFile</span>
+    <span class="n">robjects</span><span class="o">.</span><span class="n">globalenv</span><span class="p">[</span><span class="s1">&#39;ltmgFolder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ltmgFolder</span>
+
+    <span class="n">robjects</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        x &lt;- read.csv(expressionFile,header = T,row.names = 1,check.names = F)</span>
+<span class="s1">        object &lt;- CreateLTMGObject(x)</span>
+<span class="s1">        object &lt;-RunLTMG(object,Gene_use = &#39;all&#39;)</span>
+<span class="s1">        WriteSparse(object,path=ltmgFolder,gene.name=FALSE, cell.name=FALSE)</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="scgnn-celltype-cluster">
+<h2>scGNN celltype cluster<a class="headerlink" href="#scgnn-celltype-cluster" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -182,7 +256,7 @@
         <a href="Reproducibility.html" class="btn btn-neutral float-right" title="Reproducibility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Contact.html" class="btn btn-neutral float-left" title="Contact" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Getting%20start.html" class="btn btn-neutral float-left" title="Getting start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

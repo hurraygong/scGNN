@@ -65,6 +65,8 @@ python -W ignore PreprocessingscGNN.py --datasetName GSE138852_counts.csv.gz --d
 ```shell
 python -W ignore PreprocessingscGNN.py --datasetName 481193cb-c021-4e04-b477-0b7cfef4614b.mtx --datasetDir liver/ --LTMGDir liver/ --geneSelectnum 2000
 ```
+
+
 ## Check Results
 
 In outputdir now, we have four output files.

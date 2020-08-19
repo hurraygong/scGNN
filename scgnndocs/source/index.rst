@@ -12,8 +12,10 @@ This repository contains the source code for the paper scGNN: a novel graph neur
 
 scGNN's applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-- Formulates and ggregates cell-cell relationships with graph neural networks
-- Models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model
+- Imputed gene expression matrix. to Models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model.
+- Learned embedding (features) for clustering.
+- Learned graph edges of the cell graph in tuples: nodeA,nodeB,weights.
+- Identified cell types. Formulates and agregates cell-cell relationships with graph neural networks
 
 Reference
 ^^^^^^^^^

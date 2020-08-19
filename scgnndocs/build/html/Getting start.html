@@ -239,6 +239,20 @@ unzip 4d6f6c96-2a83-43d8-8fe1-0f53bffd4674.homo_sapiens.mtx.zip
 </div>
 </div>
 </div>
+<div class="section" id="check-results">
+<h2>Check Results<a class="headerlink" href="#check-results" title="Permalink to this headline">¶</a></h2>
+<p>In outputdir now, we have four output files.</p>
+<ul class="simple">
+<li><p>*<strong>_recon.csv</strong>:        Imputed gene expression matrix. Row as gene, col as cell. First row as gene name, First col as the cell name.</p></li>
+<li><p>*<strong>_embedding.csv</strong>:    Learned embedding (features) for clustering. Row as cell, col as embeddings. First row as the embedding names (no means). First col as the cell name.</p></li>
+<li><p>*<strong>_graph.csv</strong>:        Learned graph edges of the cell graph in tuples: nodeA,nodeB,weights. First row as the name.</p></li>
+<li><p>*<strong>_results.txt</strong>:      Identified cell types. First row as the name.</p></li>
+</ul>
+<p>For a complete list of options provided by scGNN:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python scGNN.py --help
+</pre></div>
+</div>
+</div>
 </div>
 
 

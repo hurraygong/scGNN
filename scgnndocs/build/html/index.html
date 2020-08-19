@@ -169,14 +169,16 @@
             
   <div class="section" id="scgnn-single-cell-graph-neural-networks">
 <h1>scGNN - single cell graph neural networks<a class="headerlink" href="#scgnn-single-cell-graph-neural-networks" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/overview.jpg"><img alt="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/overview.jpg" class="align-left" src="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/overview.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F1.large.jpg"><img alt="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F1.large.jpg" class="align-left" src="https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F1.large.jpg" style="width: 400px;" /></a>
 <p><strong>scGNN</strong> (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.</p>
 <p>This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: <a class="reference external" href="https://doi.org/10.1101/2020.08.02.233569">https://doi.org/10.1101/2020.08.02.233569</a></p>
 <div class="section" id="scgnn-s-applications">
 <h2>scGNN’s applications<a class="headerlink" href="#scgnn-s-applications" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Formulates and ggregates cell-cell relationships with graph neural networks</p></li>
-<li><p>Models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model</p></li>
+<li><p>Imputed gene expression matrix. to Models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model.</p></li>
+<li><p>Learned embedding (features) for clustering.</p></li>
+<li><p>Learned graph edges of the cell graph in tuples: nodeA,nodeB,weights.</p></li>
+<li><p>Identified cell types. Formulates and agregates cell-cell relationships with graph neural networks</p></li>
 </ul>
 </div>
 <div class="section" id="reference">

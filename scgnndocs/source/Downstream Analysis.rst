@@ -5,6 +5,12 @@ scGNN can effectively impute scRNA-Seq data and accurately predict cell clusters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To assess the imputation and cell clustering performance of scGNN, four scRNA datasets (i.e., Chung, Kolodziejczy, Klein, and Zeisel) with gold-standard cell type labels are chosen as the benchmarks. We manually simulated the dropout effects by randomly flipping 10% of the non-zero entries to zeros. The median L1 distance between the original dataset and the imputed values for these corrupted entries were evaluated to compare scGNN with MAGIC, SAUCIE, SAVER, scImpute, scVI, DCA, and DeepImpute. scGNN shows the lowest L1 distance and the highest cosine similarity in recovering leave-out values, indicating that it can accurately capture and restore true expression values (Online Methods and Figure 3A). Furthermore, scGNN depicts the underlying gene-gene relationships missed due to the sparsity of scRNA-Seq. For example, two pluripotency epiblast gene pairs, Ccnd3 versus Pou5f1 and Nanog versus Trim28, are lowly correlated in the original raw data but show strong positive correlations, which are differentiated by time points after scGNN imputation and, therefore, perform with a consistency leading to the desired results sought in the original paper21 (Figure 3B). The relationships of four more gene pairs are also enhanced (Figure S3). In the Zeisel dataset, scGNN amplifies differentially expressed genes (DEGs) signals with a higher fold change than the original, using an imputed matrix to confidently depict the cluster heterogeneity (Figure 3C and Figure S4).
 
+.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
+   :width: 600px
+   :align: left
+**Figure 3.**
+Comparison of the imputation performance. (A) The L1 distance (the lower the better) and cosine similarity (the higher the better) comparing a 10% leave-out test between scGNN and seven imputation tools on the Klein and Zeisel datasets. scGNN achieved the best scores in both datasets, indicating its superior performance in gene expression recovery. (B) Co-expression patterns can be addressed more explicitly after applying scGNN on the Klein data. No clear gene pair relationship of Ccnd3 versus Pou5f1 (upper panel) and Nanog versus Trim28 (lower panel) is observed in the raw data (left) compared to the observation of unambiguous correlations within each cell type after scGNN imputation (right). (C) Comparison of DEG logFC scores using the original expression value (x-axis) and the scGNN imputed expression values (y-axis) identified in Day 1 cells of the Klein data (up) and Microglia cells of the Zeisel data (bottom). The differentiation signals are amplified after imputation.
+
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS3.png
    :width: 600px
    :align: left
@@ -12,17 +18,9 @@ To assess the imputation and cell clustering performance of scGNN, four scRNA da
 
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS4.png
-   :width: 600px
+   :width: 400px
    :align: left
-**Figure S4**. Design of ablation tests and parameter searching of scGNN.
-
-
-.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
-   :width: 600px
-   :align: left
-**Figure 3.**
-Comparison of the imputation performance. (A) The L1 distance (the lower the better) and cosine similarity (the higher the better) comparing a 10% leave-out test between scGNN and seven imputation tools on the Klein and Zeisel datasets. scGNN achieved the best scores in both datasets, indicating its superior performance in gene expression recovery. (B) Co-expression patterns can be addressed more explicitly after applying scGNN on the Klein data. No clear gene pair relationship of Ccnd3 versus Pou5f1 (upper panel) and Nanog versus Trim28 (lower panel) is observed in the raw data (left) compared to the observation of unambiguous correlations within each cell type after scGNN imputation (right). (C) Comparison of DEG logFC scores using the original expression value (x-axis) and the scGNN imputed expression values (y-axis) identified in Day 1 cells of the Klein data (up) and Microglia cells of the Zeisel data (bottom). The differentiation signals are amplified after imputation.
-
+**Figure S4**. Design of ablation tests and parameter searching of scGNN.We tested 252 parameter combinations in scGNN for the three autoencoders in the iterative process to select the best scGNN performance. All results are evaluated via ten criteria for clustering and two for imputation.
 
 Besides the artificial dropout benchmarks, we continued to evaluate the clustering performance of scGNN and the seven imputation tools on the same two datasets. The predicted cell labels were systematically evaluated using 10 criteria including an adjusted Rand index (ARI), Silhouette, and eight other criteria (Figure 4A). By visualizing cell clustering results on UMAPs, one can observe more apparent closeness of cells within the same cluster and separation among different clusters when using scGNN embeddings compared to the other seven imputation tools (Figure 4B). The expression patterns show heterogeneity along with embryonic stem cell development. In the case of Klein’s time-series data, scGNN recovered a complex structure that was not well represented by the raw data, showing a well-aligned trajectory path of cell development from Day 1 to Day 7 (Figure 4C). Moreover, scGNN showed significant enhancement in cell clustering compared to the clustering tool (e.g., Seurat) when using the raw data (Figure S5). On top of that, to address the significance of using the graph autoencoder and cluster autoencoder in scGNN, we performed ablation tests to bypass each autoencoder and compare the ARI results on the Klein dataset (Figure 4D). The results showed that removing either of these two autoencoders dramatically decreased the performance of scGNN in terms of cell clustering accuracy. Another test using all genes rather than the top 2,000 variable genes also showed poor performance in the results and doubled the runtime of scGNN, indicating that those low variable genes may reduce the signal-to-noise ratio and negatively affect the accuracy of scGNN.
 
@@ -37,8 +35,6 @@ Cell clustering and trajectory evaluations. (A) Comparison of ARI and Silhouette
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS5.png
    :width: 600px
    :align: left
-
-
 
 scGNN illustrates AD-related neural development and the underlying regulatory mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -79,5 +79,3 @@ def runLTMG(expressionFile,ltmgFolder):
     ''')
 
  ```
-
-## scGNN celltype cluster

@@ -8,7 +8,7 @@ To assess the imputation and cell clustering performance of scGNN, four scRNA da
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS3.png
    :width: 600px
    :align: left
-Figure S3. Comparison of gene co-expression relationships in the Klein dataset.
+Figure S3. Comparison of gene co-expression relationships in the Klein dataset.Different colors indicate cell clusters given in the original paper (Day 1, 2, 7, and 9).
 
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS4.png
@@ -31,7 +31,7 @@ Besides the artificial dropout benchmarks, we continued to evaluate the clusteri
 Figure 4.
 Cell clustering and trajectory evaluations. (A) Comparison of ARI and Silhouette scores among scGNN and seven tools using Klein and Zeisel datasets. (B) Comparison of UMAP visualizations on the same two datasets, indicating that when scGNN embeddings are utilized, cells are more closely grouped within the same cluster but when other tools are used, cells are more separated between clusters. Raw data is clustered and visualized using Seurat. (C) Pseudotime analysis using the raw expression matrix and scGNN imputed matrix of the Klein dataset via Monocle2. (D) Justification of using the graph autoencoder, the cluster autoencoder, and the top 2,000 variable genes on the Klein dataset in the scGNN framework, in terms of ARI. scGNN CA-shows the results of the graph autoencoder’s ablation, CA-shows the results of the cluster autoencoder’s ablation, and AG shows the results after using all genes in the framework.
 
-Figure S5. Clustering results of scGNN compared to existing clustering tools.
+Figure S5. Clustering results of scGNN compared to existing clustering tools.The comparison was conducted on four tools (i.e., Seurat, CIDR, RaceID, and Monocle3) using four benchmark datasets. ARI of each test is indicated on each UMAP, comparing the predicted cell clusters to the benchmark labels.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS5.png
    :width: 600px
@@ -42,7 +42,7 @@ Figure S5. Clustering results of scGNN compared to existing clustering tools.
 scGNN illustrates AD-related neural development and the underlying regulatory mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To further demonstrate the applicative power of scGNN, we applied it to a scRNA-Seq dataset (GEO accession number GSE138852) containing 13,214 single nuclei collected from six AD and six control brains34. scGNN identifies 10 cell clusters, including microglia, neurons, oligodendrocyte progenitor cells (OPCs), astrocytes, and six sub-clusters of oligodendrocytes (Figure 5A). Specifically, the proportions of these six oligodendrocyte sub-clusters differ between AD patients (Oligos 2, 3, and 4) and healthy controls (Oligos 1, 5, and 6) (Figure 5B). Moreover, the difference between AD and the control in the proportion of astrocyte and OPCs is observed, indicating the change of cell population in AD patients compared to healthy controls (Figure 5B). We then combined these six oligodendrocyte sub-clusters into one to discover DEGs. Since scGNN can significantly increase true signals in the raw dataset, DEG patterns are more explicit (Supplementary Figure S6). Among all DEGs, we confirmed 22 genes as cell-type-specific markers for astrocytes, OPCs, oligodendrocytes, and neurons, in that order35 (Figure 5C). A biological pathway enrichment analysis shows several highly positive-enrichments in AD cells compared to control cells among all five cell types. These enrichments include oxidative phosphorylation and pathways associated with AD, Parkinson’s disease, and Huntington disease36 (Figure 5D and Supplementary Figure S7). Interestingly, we observed a strong negative enrichment of the MAPK (mitogen-activated protein kinase) signaling pathway in the microglia cells, suggesting a relatively low MAPK regulation in microglia than other cells.
+To further demonstrate the applicative power of scGNN, we applied it to a scRNA-Seq dataset (GEO accession number GSE138852) containing 13,214 single nuclei collected from six AD and six control brains. scGNN identifies 10 cell clusters, including microglia, neurons, oligodendrocyte progenitor cells (OPCs), astrocytes, and six sub-clusters of oligodendrocytes (Figure 5A). Specifically, the proportions of these six oligodendrocyte sub-clusters differ between AD patients (Oligos 2, 3, and 4) and healthy controls (Oligos 1, 5, and 6) (Figure 5B). Moreover, the difference between AD and the control in the proportion of astrocyte and OPCs is observed, indicating the change of cell population in AD patients compared to healthy controls (Figure 5B). We then combined these six oligodendrocyte sub-clusters into one to discover DEGs. Since scGNN can significantly increase true signals in the raw dataset, DEG patterns are more explicit (Supplementary Figure S6). Among all DEGs, we confirmed 22 genes as cell-type-specific markers for astrocytes, OPCs, oligodendrocytes, and neurons, in that order35 (Figure 5C). A biological pathway enrichment analysis shows several highly positive-enrichments in AD cells compared to control cells among all five cell types. These enrichments include oxidative phosphorylation and pathways associated with AD, Parkinson’s disease, and Huntington disease36 (Figure 5D). Interestingly, we observed a strong negative enrichment of the MAPK (mitogen-activated protein kinase) signaling pathway in the microglia cells, suggesting a relatively low MAPK regulation in microglia than other cells.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F5.large.jpg
    :width: 600px
@@ -50,14 +50,13 @@ To further demonstrate the applicative power of scGNN, we applied it to a scRNA-
 
 Figure 5 Alzheimer’s disease dataset (GSE138852) analysis based on scGNN. (A) Cell clustering UMAP. Labeled with scGNN clusters (left) and AD/control samples (right). (B) Comparison of cell proportions in AD/control samples (left) and each cluster (right). (C) Heatmap of DEGs (logFC > 0.25) in each cluster. Six oligodendrocyte sub-clusters are merged as one to compare with other cell types. Marker genes identified in DEGs are listed on the right. (D) Selected AD-related enrichment pathways in each cell type in the comparison between AD and control cells. (E) Underlying TFs are responsible for the cell-type-specific gene regulations identified by IRIS3.
 
-Figure S6. Comparison of DEG expression before and after scGNN imputation.
+Figure S6. Comparison of DEG expression before (Left) and after scGNN imputation (Right). DEGs were identified using the Seurat package based on scGNN predicted clusters, and the six oligodendrocyte sub-clusters were merged into one. Cells were randomly selected from half of the merged oligo group to make the figure more balanced.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS6.png
    :width: 600px
    :align: left
 
-Figure S7. A full list of enriched pathways using DEGs between AD and control cells within each cluster
+Figure S7. A full list of enriched pathways using DEGs between AD and control cells within each cluster. The enrichment test was conducted by using GSEA. Colors indicate normalized enrichment scores.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS7.png
-   :width: 600px
-   :align: left
+

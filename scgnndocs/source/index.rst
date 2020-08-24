@@ -58,8 +58,7 @@ Your help to improve scGNN is highly appreciated.
 
    Getting start
    DataProcessing
-   Reproducibility
-   Visualization
+   Downstream Analysis
 
 .. toctree::
    :caption: Example Datasets

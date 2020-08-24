@@ -8,21 +8,26 @@ To assess the imputation and cell clustering performance of scGNN, four scRNA da
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
    :width: 600px
    :align: left
+
 **Figure 3.**
 Comparison of the imputation performance. (A) The L1 distance (the lower the better) and cosine similarity (the higher the better) comparing a 10% leave-out test between scGNN and seven imputation tools on the Klein and Zeisel datasets. scGNN achieved the best scores in both datasets, indicating its superior performance in gene expression recovery. (B) Co-expression patterns can be addressed more explicitly after applying scGNN on the Klein data. No clear gene pair relationship of Ccnd3 versus Pou5f1 (upper panel) and Nanog versus Trim28 (lower panel) is observed in the raw data (left) compared to the observation of unambiguous correlations within each cell type after scGNN imputation (right). (C) Comparison of DEG logFC scores using the original expression value (x-axis) and the scGNN imputed expression values (y-axis) identified in Day 1 cells of the Klein data (up) and Microglia cells of the Zeisel data (bottom). The differentiation signals are amplified after imputation.
+
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS3.png
    :width: 600px
    :align: left
+
 **Figure S3**. Comparison of gene co-expression relationships in the Klein dataset.Different colors indicate cell clusters given in the original paper (Day 1, 2, 7, and 9).
 
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS4.png
    :width: 400px
    :align: left
+
 **Figure S4**. Design of ablation tests and parameter searching of scGNN.We tested 252 parameter combinations in scGNN for the three autoencoders in the iterative process to select the best scGNN performance. All results are evaluated via ten criteria for clustering and two for imputation.
 
 Besides the artificial dropout benchmarks, we continued to evaluate the clustering performance of scGNN and the seven imputation tools on the same two datasets. The predicted cell labels were systematically evaluated using 10 criteria including an adjusted Rand index (ARI), Silhouette, and eight other criteria (Figure 4A). By visualizing cell clustering results on UMAPs, one can observe more apparent closeness of cells within the same cluster and separation among different clusters when using scGNN embeddings compared to the other seven imputation tools (Figure 4B). The expression patterns show heterogeneity along with embryonic stem cell development. In the case of Klein’s time-series data, scGNN recovered a complex structure that was not well represented by the raw data, showing a well-aligned trajectory path of cell development from Day 1 to Day 7 (Figure 4C). Moreover, scGNN showed significant enhancement in cell clustering compared to the clustering tool (e.g., Seurat) when using the raw data (Figure S5). On top of that, to address the significance of using the graph autoencoder and cluster autoencoder in scGNN, we performed ablation tests to bypass each autoencoder and compare the ARI results on the Klein dataset (Figure 4D). The results showed that removing either of these two autoencoders dramatically decreased the performance of scGNN in terms of cell clustering accuracy. Another test using all genes rather than the top 2,000 variable genes also showed poor performance in the results and doubled the runtime of scGNN, indicating that those low variable genes may reduce the signal-to-noise ratio and negatively affect the accuracy of scGNN.
+
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F4.large.jpg
    :width: 600px
@@ -30,11 +35,12 @@ Besides the artificial dropout benchmarks, we continued to evaluate the clusteri
 **Figure 4.**
 Cell clustering and trajectory evaluations. (A) Comparison of ARI and Silhouette scores among scGNN and seven tools using Klein and Zeisel datasets. (B) Comparison of UMAP visualizations on the same two datasets, indicating that when scGNN embeddings are utilized, cells are more closely grouped within the same cluster but when other tools are used, cells are more separated between clusters. Raw data is clustered and visualized using Seurat. (C) Pseudotime analysis using the raw expression matrix and scGNN imputed matrix of the Klein dataset via Monocle2. (D) Justification of using the graph autoencoder, the cluster autoencoder, and the top 2,000 variable genes on the Klein dataset in the scGNN framework, in terms of ARI. scGNN CA-shows the results of the graph autoencoder’s ablation, CA-shows the results of the cluster autoencoder’s ablation, and AG shows the results after using all genes in the framework.
 
-**Figure S5**. Clustering results of scGNN compared to existing clustering tools.The comparison was conducted on four tools (i.e., Seurat, CIDR, RaceID, and Monocle3) using four benchmark datasets. ARI of each test is indicated on each UMAP, comparing the predicted cell clusters to the benchmark labels.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS5.png
    :width: 600px
    :align: left
+
+**Figure S5**. Clustering results of scGNN compared to existing clustering tools.The comparison was conducted on four tools (i.e., Seurat, CIDR, RaceID, and Monocle3) using four benchmark datasets. ARI of each test is indicated on each UMAP, comparing the predicted cell clusters to the benchmark labels.
 
 scGNN illustrates AD-related neural development and the underlying regulatory mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

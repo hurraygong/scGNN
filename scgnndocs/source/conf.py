@@ -18,8 +18,8 @@ import recommonmark
 # -- Project information -----------------------------------------------------
 
 project = 'scGNN'
-copyright = '2020, Juexin Wang'
-author = 'Juexin Wang, Jianting Gong'
+copyright = '2020, Juexin Wang, Jianting Gong'
+author = 'Juexin Wang'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'

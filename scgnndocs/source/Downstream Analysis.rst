@@ -22,7 +22,7 @@ The median L1 distance between the original dataset and the imputed values for t
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
 
-**Figure 3.**Comparison of the imputation performance.
+**Figure 3.** Comparison of the imputation performance.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS3.png
 
@@ -30,7 +30,7 @@ The median L1 distance between the original dataset and the imputed values for t
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS4.png
 
-**Figure S4**. Design of ablation tests and parameter searching of scGNN.We tested 252 parameter combinations in scGNN for the three autoencoders in the iterative process to select the best scGNN performance. All results are evaluated via ten criteria for clustering and two for imputation.
+**Figure S4.** Design of ablation tests and parameter searching of scGNN.We tested 252 parameter combinations in scGNN for the three autoencoders in the iterative process to select the best scGNN performance. All results are evaluated via ten criteria for clustering and two for imputation.
 
 
 Cell clustering results of scGNN

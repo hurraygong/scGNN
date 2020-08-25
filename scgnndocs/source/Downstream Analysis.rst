@@ -10,10 +10,6 @@ Imputation performance of scGNN
 
 The median L1 distance between the original dataset and the imputed values for these corrupted entries were evaluated to compare scGNN with MAGIC, SAUCIE, SAVER, scImpute, scVI, DCA, and DeepImpute.
 
-.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
-
-**Figure 3.**Comparison of the imputation performance.
-
 (A) The L1 distance (the lower the better) and cosine similarity (the higher the better) comparing a 10% leave-out test between scGNN and seven imputation tools on the Klein and Zeisel datasets. scGNN achieved the best scores in both datasets, indicating its superior performance in gene expression recovery (Figure 3A).
 
 (B) Co-expression patterns can be addressed more explicitly after applying scGNN on the Klein data. No clear gene pair relationship of Ccnd3 versus Pou5f1 (upper panel) and Nanog versus Trim28 (lower panel) is observed in the raw data (left) compared to the observation of unambiguous correlations within each cell type after scGNN imputation (right) (Figure 3B).
@@ -24,9 +20,13 @@ The median L1 distance between the original dataset and the imputed values for t
 
 (E) In the Zeisel dataset, scGNN amplifies differentially expressed genes (DEGs) signals with a higher fold change than the original, using an imputed matrix to confidently depict the cluster heterogeneity (Figure 3C and Figure S4).
 
+.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F3.large.jpg
+
+**Figure 3.**Comparison of the imputation performance.
+
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS3.png
 
-**Figure S3**. Comparison of gene co-expression relationships in the Klein dataset.
+**Figure S3.** Comparison of gene co-expression relationships in the Klein dataset.
 
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS4.png
 
@@ -40,11 +40,6 @@ Besides the artificial dropout benchmarks, we continued to evaluate the clusteri
 
 **Cell clustering and trajectory evaluations**
 
-.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F4.large.jpg
-
-**Figure 4.**
-Cell clustering and trajectory evaluations.
-
 (A) Comparison of ARI and Silhouette scores among scGNN and seven tools using Klein and Zeisel datasets.
 
 (B) Comparison of UMAP visualizations on the same two datasets, indicating that when scGNN embeddings are utilized, cells are more closely grouped within the same cluster but when other tools are used, cells are more separated between clusters. Raw data is clustered and visualized using Seurat.
@@ -53,6 +48,10 @@ Cell clustering and trajectory evaluations.
 
 (D) Justification of using the graph autoencoder, the cluster autoencoder, and the top 2,000 variable genes on the Klein dataset in the scGNN framework, in terms of ARI. scGNN CA-shows the results of the graph autoencoder’s ablation, CA-shows the results of the cluster autoencoder’s ablation, and AG shows the results after using all genes in the framework.
 
+.. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F4.large.jpg
+
+**Figure 4.**
+Cell clustering and trajectory evaluations.
 
 **Cell clustering results of scGNN compared to existing clustering tools**
 
@@ -71,8 +70,6 @@ To further demonstrate the applicative power of scGNN, we applied it to a scRNA-
 
 **Figure 5** Alzheimer’s disease dataset (GSE138852) analysis based on scGNN. (A) Cell clustering UMAP. Labeled with scGNN clusters (left) and AD/control samples (right). (B) Comparison of cell proportions in AD/control samples (left) and each cluster (right). (C) Heatmap of DEGs (logFC > 0.25) in each cluster. Six oligodendrocyte sub-clusters are merged as one to compare with other cell types. Marker genes identified in DEGs are listed on the right. (D) Selected AD-related enrichment pathways in each cell type in the comparison between AD and control cells. (E) Underlying TFs are responsible for the cell-type-specific gene regulations identified by IRIS3.
 
-
 .. image:: https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/FigureS6.png
-
 
 **Figure S6**. Comparison of DEG expression before (Left) and after scGNN imputation (Right). DEGs were identified using the Seurat package based on scGNN predicted clusters, and the six oligodendrocyte sub-clusters were merged into one. Cells were randomly selected from half of the merged oligo group to make the figure more balanced.

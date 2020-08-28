@@ -1,10 +1,8 @@
 # About
-scGNN (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets.
-
-This repository contains the source code for the paper scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses preprint available at bioRxiv; doi: https://doi.org/10.1101/2020.08.02.233569
+scGNN (single cell graph neural networks) provides a hypothesis-free deep learning framework for scRNA-Seq analyses. This framework formulates and aggregates cell-cell relationships with graph neural networks and models heterogeneous gene expression patterns using a left-truncated mixture Gaussian model. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets. scGNN integrates three iterative multi-modal autoencoders and outperforms existing tools for gene imputation and cell clustering on four benchmark scRNA-Seq datasets. In an Alzheimer’s disease study with 13,214 single nuclei from postmortem brain tissues,scGNN successfully illustrated disease-related neural development and the differential mechanism. scGNN provides an effective representation of gene expression and cell-cell relationships. It is also a novel and powerful framework that can be applied to scRNA-Seq analyses
 
 ## scGNN model
-The architecture of scGNN is comprised of stacked autoencoders.
+### The architecture of scGNN is comprised of stacked autoencoders.
 
 It has three comprehensive computational components in an iteration process, including gene regulation integration in a feature autoencoder, cell graph representation in a graph autoencoder, gene expression updating in a set of parallel cell-type105 specific cluster autoencoders, as well as the final gene expression recovery in an imputation
 autoencoder.
@@ -15,6 +13,6 @@ This is the architecture of scGNN. It takes the gene expression matrix generated
 
 
 
-## The architecture of scGNN Autoencoders
+### The architecture of scGNN Autoencoders
 ![](https://raw.githubusercontent.com/hurraygong/scGNN/master/pictures/F2.large.jpg)
 (A) The graph autoencoder takes the adjacent matrix of the pruned graph as the input. The encoder consists of two layers of GNNs. In each layer, each node of the graph aggregates information from its neighbors. The encoder learns a low dimensional presentation (i.e., graph embedding) of the pruned cell graph. The decoder reconstructs the adjacent matrix of the graph by dot products of the learned graph embedding followed by a sigmoid activation function. The graph autoencoder is trained by minimizing the cross-entropy loss between the input and the reconstructed graph. Cell clusters are obtained by applying k-means and Louvain on the graph embedding. (B) The feature autoencoder takes the expression matrix as the input, regularized by LTMG signals. The dimensions of the encoder and decoder layers are 512×128 and 128×512, respectively. The feature autoencoder is trained by minimizing the difference between the input matrix and the output matrix. (C) The cluster autoencoder takes a reconstructed expression matrix from the feature autoencoder as the input. An individual encoder is built on the cells in each of the identified clusters, and each autoencoder is trained individually. The concatenation of the results from all clusters is treated as the reconstructed matrix.

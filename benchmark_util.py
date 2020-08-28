@@ -301,7 +301,7 @@ def measure_clustering_results(z, listResult):
     Output results from different clustering methods with unknown cell types
     '''
     silhouette, chs, dbs = measureClusteringNoLabel(z, listResult)
-    print('{:.4f} {:.4f} {:.4f}'.format(silhouette, chs, dbs))
+    print(' {:.4f} {:.4f} {:.4f}'.format(silhouette, chs, dbs))
 
 # Benchmark
 def test_clustering_benchmark_results(z, edgeList, true_labels, args):
@@ -322,6 +322,7 @@ def test_clustering_benchmark_results(z, edgeList, true_labels, args):
         print("KMeans")
         clustering = KMeans(n_clusters=args.n_clusters, random_state=0).fit(z)
         listResult = clustering.predict(z)
+
         measure_clustering_benchmark_results(z,listResult, true_labels)
     except:
         pass
@@ -408,6 +409,7 @@ def test_clustering_results(z, edgeList, args):
         print("KMeans")
         clustering = KMeans(n_clusters=args.n_clusters, random_state=0).fit(z)
         listResult = clustering.predict(z)
+        print(len(listResult))
         measure_clustering_results(z,listResult)
     except:
         pass

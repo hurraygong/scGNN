@@ -1,6 +1,6 @@
 References
 ------------
-1. VAE <https://github.com/pytorch/examples/tree/master/vae>
-2. GAE <https://github.com/tkipf/gae/tree/master/gae>
-3. scVI-reproducibility <https://github.com/romain-lopez/scVI-reproducibility>
-4. LTMG <https://academic.oup.com/nar/article/47/18/e111/5542876>
+
+**Please cite:**
+
+Juexin Wang, Anjun Ma, Yuzhou Chang, Jianting Gong, Yuexu Jiang, Hongjun Fu, Cankun Wang, Ren Qi, Qin Ma, Dong Xu, scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses, bioRxiv, https://doi.org/10.1101/2020.08.02.233569

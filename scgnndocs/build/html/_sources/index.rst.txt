@@ -31,7 +31,7 @@ This work was supported by the National Institutes of Health’s National Instit
 Support
 ^^^^^^^
 Feel free to submit an `issue <https://github.com/juexinwang/scGNN/issues/new/choose>`_
-or send us an `email <mailto:mail@scvelo.org>`_.
+or send us an `email <wangjue@missouri.edu>`_.
 Your help to improve scGNN is highly appreciated.
 
 .. note::
@@ -56,16 +56,15 @@ Your help to improve scGNN is highly appreciated.
    :maxdepth: 1
    :hidden:
 
-   Getting start
-   DataProcessing
-   Reproducibility
-   Visualization
+   Getting started
+   Data Processing
+   Downstream Analysis
 
 .. toctree::
    :caption: Example Datasets
    :maxdepth: 1
    :hidden:
 
-   TrainData
+   Benchmark data
    Casestudy
 

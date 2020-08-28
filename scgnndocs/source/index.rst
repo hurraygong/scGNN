@@ -19,11 +19,8 @@ scGNN's applications
 
 Reference
 ^^^^^^^^^
-1. `VAE <https://github.com/pytorch/examples/tree/master/vae>`_
-2. `GAE <https://github.com/tkipf/gae/tree/master/gae>`_
-3. `scVI-reproducibility <https://github.com/romain-lopez/scVI-reproducibility>`_
-4. `LTMG <https://academic.oup.com/nar/article/47/18/e111/5542876>`_
-
+1.Juexin Wang, Anjun Ma, Yuzhou Chang, Jianting Gong, Yuexu Jiang, Hongjun Fu, Cankun Wang, Ren Qi, Qin Ma, Dong Xu, scGNN: a novel graph neural network framework for single-cell RNA-Seq analyses, bioRxiv, https://doi.org/10.1101/2020.08.02.233569
+2.The codes are available at https://github.com/juexinwang/scGNN
 ACKNOWLEDGEMENTS
 ^^^^^^^^^^^^^^^^
 This work was supported by the National Institutes of Health’s National Institute of General Medical Sciences (awards R35-GM126985 and R01-GM131399).

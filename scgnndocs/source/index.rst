@@ -56,8 +56,8 @@ Your help to improve scGNN is highly appreciated.
    :maxdepth: 1
    :hidden:
 
-   Getting start
-   DataProcessing
+   Getting started
+   Data Processing
    Downstream Analysis
 
 .. toctree::
@@ -65,6 +65,6 @@ Your help to improve scGNN is highly appreciated.
    :maxdepth: 1
    :hidden:
 
-   TrainData
+   Benchmark data
    Casestudy
 

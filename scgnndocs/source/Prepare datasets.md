@@ -2,7 +2,7 @@
 
 Datasets should be preprocessed to proceed. scGNN accepts scRNA-seq data format: CSV and 10X
 
-###  Powmload datasets
+###  Dowmload datasets
 
 CSV format explicitly shows data in plain text. We take an example of Alzheimer’s disease datasets ([GSE138852](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138852)) analyzed in the manuscript.
 

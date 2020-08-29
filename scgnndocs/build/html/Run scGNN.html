@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Run scGNN &mdash; scGNN 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Check Results" href="Check%20Results.html" />
+    <link rel="prev" title="Data Processing" href="Data%20Processing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> scGNN
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Release.html">Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare%20datasets.html">Prepare datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Processing.html">Data Processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run scGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check%20Results.html">Check Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Downstream%20Analysis.html">Downstream Analysis</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Example Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Benchmark%20data.html">Benchmark data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Casestudy.html">Casestudy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">scGNN</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Run scGNN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Run scGNN.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="run-scgnn">
+<h1>Run scGNN<a class="headerlink" href="#run-scgnn" title="Permalink to this headline">¶</a></h1>
+<p>Program <em><strong>PreprocessingscGNN.py</strong></em> is the main entrance of scGNN to impute and clustering. There are quite a few parameters to define to meet users’ requirements.</p>
+<div class="section" id="required">
+<h2>Required<a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>datasetName</strong> defines the folder of scRNA-Seq</p></li>
+<li><p><strong>LTMGDir</strong> defines folder of the preprocessed LTMG output</p></li>
+<li><p><strong>outputDir</strong> Output folder of the results</p></li>
+</ul>
+</div>
+<div class="section" id="clustering-related">
+<h2>Clustering related<a class="headerlink" href="#clustering-related" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>clustering-method</strong> Clustering method on identifying celltypes from the embedding. Default is LouvainK: use Louvain to determine the number of the clusters and then use K-means. Supporting clustering type: Louvain/KMeans/SpectralClustering/AffinityPropagation/AgglomerativeClustering/AgglomerativeClusteringK/Birch/BirchN/MeanShift/OPTICS/LouvainK/LouvainB</p></li>
+<li><p><strong>n-clusters</strong> predefines the number of clusters, it only used for clustering methods need a number of clusters input as KNN</p></li>
+<li><p><strong>maxClusterNumber</strong> defines the maximum number of cluster allowed, default is 30. This parameter prevents extreme cases that too many clusters identified by Louvian clustering</p></li>
+<li><p><strong>minMemberinCluster</strong> defines the minimum number of cells in a cluster, default is 5. This parameter prevents extreme cases that too many clusters identified by Louvain clustering.</p></li>
+<li><p><strong>resolution</strong> controls the number of clusters identified by Louvain clustering. This parameter can be set between 0.4 and 1.2 in most cases. According to results on benchmarks, we set default ‘auto’.</p></li>
+</ul>
+</div>
+<div class="section" id="optional-hyperparameters">
+<h2>Optional: Hyperparameters<a class="headerlink" href="#optional-hyperparameters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>EM-iteration</strong> defines the number of iteration, default is 10</p></li>
+<li><p><strong>Regu-epochs</strong> defines epochs in feature autoencoder, default is 500</p></li>
+<li><p><strong>EM-epochs</strong> defines epochs in feature autoencoder in the iteration, default is 200</p></li>
+<li><p><strong>cluster-epochs</strong> defines epochs in the cluster autoencoder, default is 200</p></li>
+<li><p><strong>k</strong> is k of the K-Nearest-Neighour Graph</p></li>
+<li><p><strong>knn-distance</strong> distance type of building K-Nearest-Neighour Graph, supported type: euclidean/cosine/correlation (default: euclidean)</p></li>
+<li><p><strong>GAEepochs</strong> Number of epochs to train in Graph Autoencoder</p></li>
+</ul>
+</div>
+<div class="section" id="optional-performance">
+<h2>Optional: Performance<a class="headerlink" href="#optional-performance" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>quickmode</strong> whether or not to bypass the cluster autoencoder.</p></li>
+<li><p><strong>useGAEembedding</strong> whether use Graph Autoencoder</p></li>
+<li><p><strong>regulized-type</strong> is the regularized type: noregu/LTMG, default is to use LTMG</p></li>
+<li><p><strong>alphaRegularizePara</strong> alpha in the manuscript, the intensity of the regularizer</p></li>
+<li><p><strong>EMregulized-type</strong> defines the imputation regularizer type:noregu/Graph/Celltype, default: Celltype</p></li>
+<li><p><strong>gammaImputePara</strong> defines the intensity of LTMG regularizer in Imputation</p></li>
+<li><p><strong>graphImputePara</strong> defines the intensity of graph regularizer in Imputation</p></li>
+<li><p><strong>celltypeImputePara</strong> defines the intensity of celltype regularizer in Imputation</p></li>
+<li><p><strong>L1Para</strong> defines the intensity of L1 regularizer, default: 1.0</p></li>
+<li><p><strong>L2Para</strong> defines the intensity of L2 regularizer, defualt: 0.0</p></li>
+<li><p><strong>saveinternal</strong> whether output internal results for debug usage</p></li>
+</ul>
+</div>
+<div class="section" id="optional-speed">
+<h2>Optional: Speed<a class="headerlink" href="#optional-speed" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>coresUsage</strong> defines how many cores can be used. default: 1.</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="csv-format">
+<h3>CSV format<a class="headerlink" href="#csv-format" title="Permalink to this headline">¶</a></h3>
+<p>For CSV format, we need add <strong>–nonsparseMode</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -W ignore scGNN.py --datasetName GSE138852 --datasetDir YOUR_FOLDER --LTMGDir ./ --outputDir outputdir/ --EM-iteration <span class="m">2</span> --Regu-epochs <span class="m">50</span> --EM-epochs <span class="m">20</span> --quickmode --nonsparseMode
+</pre></div>
+</div>
+</div>
+<div class="section" id="x-format">
+<h3>10X format<a class="headerlink" href="#x-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -W ignore scGNN.py --datasetName 481193cb-c021-4e04-b477-0b7cfef4614b.mtx --LTMGDir liver/ --datasetDir YOUR_FOLDER --outputDir outputdir/ --EM-iteration <span class="m">2</span> --Regu-epochs <span class="m">50</span> --EM-epochs <span class="m">20</span> --quickmode
+</pre></div>
+</div>
+<p>On these demo dataset using single cpu, the running time of demo codes is ~33min/26min. User should get exact same results as paper shown with full running time on single cpu for ~6 hours. If user wants to use multiple CPUs, parameter <strong>–coresUsage</strong> can be set as <strong>all</strong> or any number of cores the machine has.</p>
+<p>For a complete list of options provided by scGNN:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python scGNN.py --help
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Check%20Results.html" class="btn btn-neutral float-right" title="Check Results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Data%20Processing.html" class="btn btn-neutral float-left" title="Data Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Juexin Wang, Jianting Gong
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

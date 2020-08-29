@@ -55,7 +55,10 @@ Your help to improve scGNN is highly appreciated.
    :hidden:
 
    Getting started
+   Prepare datasets
    Data Processing
+   Run scGNN
+   Check Results
    Downstream Analysis
 
 .. toctree::

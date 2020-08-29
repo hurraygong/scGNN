@@ -12,7 +12,7 @@ scGNN: a novel graph neural network model for single-cell transcriptome analysis
 `4. Check Results`_
 **********************
 `5. Downstream Analysis`_
-**********************
+**************************
 
 .. _1. Prepare datasets: https://scgnn.readthedocs.io/en/latest/Prepare%20datasets.html
 .. _2. Data Processing: https://scgnn.readthedocs.io/en/latest/Data%20Processing.html
